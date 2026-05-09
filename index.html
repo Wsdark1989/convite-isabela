@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Convite de Aniversário - Isabela</title>
+<meta property="og:title" content="⚡ Convite para Hogwarts">
+<meta property="og:description" content="Você foi convocado para uma celebração mágica da Isabela ✨">
+<meta property="og:image" content="ttps://wsdark1989.github.io/convite-isabela/Aniver-Isabela.PNG">
+<meta property="og:url" content="https://wsdark1989.github.io/convite-isabela/">
+<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/harry-p" rel="stylesheet">
 <style>
@@ -15,7 +20,7 @@
     --ink: #1a0a00;
     --red: #740001;
     --night: #050a1a;
-    --hp-font: 'Harry P', 'HarryP', 'Cinzel Decorative', serif;
+    --hp-font: 'Harry P', 'HarryP', 'Hagrid';
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -27,7 +32,7 @@
 
   body {
     background: var(--night);
-    font-family: 'IM Fell English', serif;
+    font-family: 'Hagrid', serif;
     overflow-x: hidden;
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E✨%3C/text%3E%3C/svg%3E"), auto;
   }
@@ -233,7 +238,7 @@
     position:absolute;
     top:7%; left:11%; right:11%; bottom:6%;
     overflow-y:auto; overflow-x:hidden;
-    font-family:'IM Fell English', serif;
+    font-family:var(--hp-font);
     color:#2a1000; text-align:center;
     scrollbar-width:thin;
     scrollbar-color:rgba(139,105,20,0.35) transparent;
@@ -276,7 +281,7 @@
   }
 
   .letter-subtitle {
-    font-family:'Cinzel', serif;
+    font-family:var(--hp-font);
     font-size:clamp(8px,2vw,11px);
     color:#8b6914; letter-spacing:3px; text-transform:uppercase;
   }
@@ -296,17 +301,6 @@
   .letter-age {
     font-family:var(--hp-font);
     font-size:clamp(13px,3.5vw,20px); color:#8b6914;
-  }
-
-  /* Seal */
-  .seal-wrap { display:flex; justify-content:center; margin:clamp(4px,1.2vh,10px) 0; }
-  .letter-seal {
-    width:clamp(32px,8vw,42px); height:clamp(32px,8vw,42px);
-    background:var(--red); border-radius:50%;
-    border:2px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    font-size:clamp(16px,4vw,20px);
-    box-shadow:0 0 16px rgba(116,0,1,0.6), 0 2px 6px rgba(0,0,0,0.4);
   }
 
   /* Info block */
@@ -345,9 +339,11 @@
     font-size:clamp(12px,3vw,14px); color:#2a1000; outline:none;
     transition:border-color 0.3s, box-shadow 0.3s;
     -webkit-appearance:none;
+    font-family: var(--hp-font);
   }
   .rsvp-input:focus {
     border-color:var(--gold); box-shadow:0 0 8px rgba(201,168,76,0.3);
+    font-family: var(--hp-font);
   }
   .rsvp-btn {
     padding:clamp(9px,2.5vw,12px) 20px;
@@ -600,14 +596,8 @@
         <p>Prezado(a) bruxo(a),</p>
         <p style="margin-top:6px">Com grande alegria, anunciamos que</p>
         <span class="letter-name">✨ Isabela ✨</span>
-        <p class="letter-age">completa seu 1º ano de vida!</p>
-        <p style="margin-top:6px;font-style:italic;font-size:11px;opacity:0.72">
-          e Hogwarts convida você para celebrar<br>este momento mágico
-        </p>
-      </div>
+        <p class="letter-age">Completa seu 1º ano de vida!</p>
 
-      <div class="seal-wrap" style="display:flex;justify-content:center;margin:8px 0;">
-        <div class="letter-seal">🦅</div>
       </div>
 
       <div class="info-block">
@@ -640,14 +630,11 @@
         </div>
       </div>
 
-      <div class="letter-divider" style="margin-top:10px"></div>
-      <p class="motto">Draco Dormiens Nunquam Titillandus</p>
-
     </div><!-- end scroll-content -->
   </div><!-- end scroll-parchment -->
 </div>
 
-<button id="music-btn" title="Música" onclick="toggleMusic()">🎵</button>
+<button id="music-btn" onclick="toggleMusic()">🎵</button>
 
 <script>
 const canvas = document.getElementById('stars-canvas');
@@ -755,18 +742,33 @@ document.getElementById('castle-section').addEventListener('click', () => {
 async function sendRsvp() {
   const name = document.getElementById('rsvp-name').value.trim();
   const guests = document.getElementById('rsvp-guests').value.trim();
+
   if (!name) {
     document.getElementById('rsvp-name').style.borderColor = '#740001';
     document.getElementById('rsvp-name').placeholder = 'Por favor, informe seu nome!';
     return;
   }
-  const subject = encodeURIComponent('Confirmação de Presença - Aniversário da Isabela 🎂');
-  const body = encodeURIComponent(`Olá!\n\nEstou confirmando minha presença no aniversário de 1 ano da Isabela!\n\nNome: ${name}\nNúmero de pessoas: ${guests||'1'}\n\nAté lá! ✨`);
-  window.location.href = `mailto:welingtonsilvam@gmail.com?subject=${subject}&body=${body}`;
-  setTimeout(() => {
-    document.getElementById('rsvp-form-wrapper').style.display = 'none';
-    document.getElementById('rsvp-success').classList.add('show');
-  }, 800);
+
+  try {
+    const response = await fetch('https://formspree.io/f/mwvywepj', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nome: name,
+        pessoas: guests || '1',
+        _subject: 'Confirmação de Presença - Aniversário da Isabela 🎂',
+      }),
+    });
+
+    if (response.ok) {
+      document.getElementById('rsvp-form-wrapper').style.display = 'none';
+      document.getElementById('rsvp-success').classList.add('show');
+    } else {
+      alert('Ops, algo deu errado. Tente novamente!');
+    }
+  } catch (error) {
+    alert('Erro de conexão. Tente novamente!');
+  }
 }
 
 // ===== MÚSICA =====
@@ -777,20 +779,55 @@ bgAudio.loop = true;
 bgAudio.volume = 0.75;
 
 function toggleMusic() {
+
   const btn = document.getElementById('music-btn');
-  if (!musicPlaying) {
-    bgAudio.play();
-    musicPlaying = true;
-    btn.textContent = '🔇';
-    btn.title = 'Pausar música';
-  } else {
+
+  if (musicPlaying) {
+
+    // PAUSAR
     bgAudio.pause();
-    bgAudio.currentTime = 0;
+
     musicPlaying = false;
+
     btn.textContent = '🎵';
     btn.title = 'Tocar música';
+
+  } else {
+
+    // TOCAR
+    bgAudio.play();
+
+    musicPlaying = true;
+
+    btn.textContent = '🔇';
+    btn.title = 'Pausar música';
   }
 }
+
+
+// AUTO PLAY
+window.addEventListener('load', () => {
+
+  const btn = document.getElementById('music-btn');
+
+  bgAudio.play()
+
+    .then(() => {
+
+      btn.textContent = '🔇';
+
+    })
+
+    .catch(() => {
+
+      btn.textContent = '🎵';
+
+    });
+});
+
+document.body.addEventListener('click', () => {
+  bgAudio.play();
+}, { once: true });
 </script>
 </body>
 </html>
