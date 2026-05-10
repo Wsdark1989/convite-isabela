@@ -281,7 +281,7 @@
 
   .hogwarts-title {
     font-family:var(--hp-font);
-    font-size:clamp(16px,4.5vw,24px);
+    font-size:clamp(20px,4.5vw,24px);
     color:#5a3a00; line-height:1.3;
   }
 
@@ -292,12 +292,12 @@
 
   .letter-subtitle {
     font-family:var(--hp-font);
-    font-size:clamp(8px,2vw,11px);
+    font-size:clamp(20px,2vw,20px);
     color:#8b6914; letter-spacing:3px; text-transform:uppercase;
   }
 
   .letter-body {
-    font-size:clamp(11px,2.8vw,15px); line-height:1.75; margin-top:clamp(4px,1vh,10px);
+    font-size:clamp(20px,2.8vw,20px); line-height:1.75; margin-top:clamp(4px,1vh,10px);
   }
 
   .letter-name {
@@ -310,7 +310,7 @@
 
   .letter-age {
     font-family:var(--hp-font);
-    font-size:clamp(13px,3.5vw,20px); color:#8b6914;
+    font-size:clamp(20px,3.5vw,20px); color:#8b6914;
   }
 
   /* Info block */
@@ -324,7 +324,7 @@
   .info-row {
     display:flex; align-items:flex-start; gap:7px;
     margin:clamp(3px,0.8vh,7px) 0;
-    font-size:clamp(10px,2.4vw,14px); color:#2a1000;
+    font-size:clamp(20px,2.4vw,20px); color:#2a1000;
   }
   .info-icon { font-size:clamp(13px,3.5vw,16px); flex-shrink:0; margin-top:1px; }
   .info-label {
@@ -337,21 +337,25 @@
   .rsvp-section { margin-top:clamp(6px,1.5vh,14px); }
   .rsvp-title {
     font-family:var(--hp-font);
-    font-size:clamp(13px,3.5vw,18px);
+    font-size:clamp(20px,3.5vw,20px);
     color:#7a5a10; margin-bottom:clamp(6px,1.5vh,10px);
   }
   .rsvp-form { display:flex; flex-direction:column; gap:7px; }
   .rsvp-input {
+    color: #000 !important;
+    opacity: 1 !important;
     width:100%; padding:clamp(7px,2vw,10px) clamp(10px,2.5vw,13px);
     background:rgba(245,225,175,0.55);
     border:1px solid #9a7520; border-radius:2px;
     font-family:'IM Fell English', serif;
-    font-size:clamp(12px,3vw,14px); color:#2a1000; outline:none;
+    font-size:clamp(20px,3vw,20px); color:#2a1000; outline:none;
     transition:border-color 0.3s, box-shadow 0.3s;
     -webkit-appearance:none;
     font-family: var(--hp-font);
   }
   .rsvp-input:focus {
+    color: #000 !important;
+    opacity: 1 !important;
     border-color:var(--gold); box-shadow:0 0 8px rgba(201,168,76,0.3);
     font-family: var(--hp-font);
   }
@@ -360,7 +364,7 @@
     background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-dark));
     border:1px solid var(--gold-light); color:var(--ink);
     font-family:var(--hp-font);
-    font-size:clamp(13px,3.5vw,17px);
+    font-size:clamp(20px,3.5vw,20px);
     cursor:pointer; border-radius:2px;
     transition:all 0.3s;
     -webkit-tap-highlight-color:transparent;
@@ -398,6 +402,38 @@
     #scroll-parchment { aspect-ratio:200/295; }
     #scroll-content { padding:2% 4%; }
   }
+
+  @media (max-width: 768px) {
+
+    #scroll-hint {
+
+      bottom: auto;
+
+      top: 62%;
+
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      font-size: 20px;
+
+      width: 100%;
+
+      text-align: center;
+
+      white-space: normal;
+
+      padding: 0 20px;
+
+    }
+
+  }
+
+  .rsvp-input::placeholder {
+  color: #000;
+  opacity: 1;
+  }
+  
 </style>
 </head>
 <body>
@@ -468,7 +504,7 @@
         <line x1="1" y1="1" x2="30" y2="22" stroke="#8b6914" stroke-width="1.2"/>
         <line x1="59" y1="1" x2="30" y2="22" stroke="#8b6914" stroke-width="1.2"/>
         <circle cx="30" cy="22" r="7" fill="#740001" stroke="#c9a84c" stroke-width="1"/>
-        <text x="30" y="26" text-anchor="middle" font-size="8" fill="#f5e6c8" font-family="serif">H</text>
+        <text x="30" y="26" text-anchor="middle" font-size="18" fill="#f5e6c8" font-family="serif">H</text>
       </svg>
     </div>
 
