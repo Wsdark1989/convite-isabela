@@ -968,6 +968,30 @@ window.addEventListener('scroll', () => {
   }
 
 });
+
+function unlockAudio() {
+
+  bgAudio.play()
+    .then(() => {
+
+      musicPlaying = true;
+
+      const btn = document.getElementById('music-btn');
+
+      btn.textContent = '🔇';
+
+    })
+    .catch(() => {});
+
+  document.removeEventListener('touchstart', unlockAudio);
+
+  document.removeEventListener('click', unlockAudio);
+
+}
+
+document.addEventListener('touchstart', unlockAudio, { once: true });
+
+document.addEventListener('click', unlockAudio, { once: true });
 </script>
 </body>
 </html>
